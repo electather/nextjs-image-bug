@@ -1,0 +1,16 @@
+{
+  "name": "nextjs-stencil-ssr",
+  "version": "1.0.0",
+  "description": "Nextjs 12 issue with stencil",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "client": "yarn workspace stencil-webcomponents build",
+    "server": "yarn workspace server dev"
+  },
+  "dependencies": {
+    "@stencil/react-output-target": "^0.3.1"
+  }
+}

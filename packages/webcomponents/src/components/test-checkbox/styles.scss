@@ -1,0 +1,70 @@
+test-checkbox {
+  display: block;
+
+  background: red;
+  input {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+
+    &:focus + label::before {
+      box-shadow: inset 0px 0px 0px blue darkblue, inset 0px 5000px 0px lightblue;
+    }
+
+    &:disabled + label::before {
+      box-shadow: inset 0px 0px 0px blue gray, inset 0px 5000px 0px lightgray;
+    }
+
+    &:checked:disabled + label::before {
+      background-color: gray;
+    }
+  }
+
+  &[label]:not([label='']) {
+    padding: 12px;
+    min-width: 160px;
+  }
+
+  input:checked + label::before {
+    box-shadow: none;
+    background-color: darkblue;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxNCAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy4zNDI4IDAuMzQ0NjdDMTMuNjM1NyAwLjYzNzU2MyAxMy42MzU3IDEuMTEyNDQgMTMuMzQyOCAxLjQwNTMzTDMuODEyNSAxMC45MzU3TDAuNjU3MTcgNy43ODAzM0MwLjM2NDI3NyA3LjQ4NzQ0IDAuMzY0Mjc3IDcuMDEyNTYgMC42NTcxNyA2LjcxOTY3QzAuOTUwMDYzIDYuNDI2NzggMS40MjQ5NCA2LjQyNjc4IDEuNzE3ODMgNi43MTk2N0wzLjgxMjUgOC44MTQzNEwxMi4yODIyIDAuMzQ0NjdDMTIuNTc1MSAwLjA1MTc3NjcgMTMuMDQ5OSAwLjA1MTc3NjcgMTMuMzQyOCAwLjM0NDY3WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  label {
+    color: darkblue;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+      box-shadow: inset 0px 0px 0px blue gray;
+      background-color: white;
+      display: inline-block;
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      margin: 0 16px 0 0;
+    }
+
+    &:hover {
+      &::before {
+        box-shadow: inset 0px 0px 0px blue darkblue, inset 0px 5000px 0px lightblue;
+      }
+    }
+
+    &:active {
+      &::before {
+        box-shadow: inset 0px 0px 0px 2px darkblue, inset 0px 5000px 0px darkblue;
+      }
+    }
+  }
+}
